@@ -1,0 +1,53 @@
+describe("Validating Login Credentials", () => {
+  beforeEach(() => {});
+  /////////////////////////////////
+
+  context("with a checked task", () => {
+    beforeEach(() => {
+      cy.visit(
+        "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login",
+      );
+    });
+
+    it("can filter for uncompleted tasks", () => {});
+
+    it("can filter for completed tasks", () => {});
+
+    it("can delete all completed tasks", () => {});
+  });
+
+  ///////////////////////////////
+  it("Testing Login Valid credentials", () => {
+    cy.login("Admin", "admin123");
+    cy.get('[alt="client brand banner"]').should("be.visible");
+  });
+  it("Testing Login with invalid credential (with blank username)", () => {
+    cy.login(" ", "admin123");
+    cy.get(".oxd-text--span").should("have.text", "Required");
+  });
+  it("Testing Login with invalid credential (with blank password)", () => {
+    cy.login("Admin", " ");
+    cy.get(".oxd-text--span").should("have.text", "Required");
+  });
+  it("Testing Login with invalid credential (with wrong username)", () => {
+    cy.login("Admin1", "admin123");
+    cy.get(".oxd-alert-content-text").should(
+      "have.text",
+      "Invalid credentials",
+    );
+  });
+  it("Testing Login with invalid credential (with wrong password)", () => {
+    cy.login("Admin", "admin1234");
+    cy.get(".oxd-alert-content-text").should(
+      "have.text",
+      "Invalid credentials",
+    );
+  });
+  it.only("Testing Login with invalid credential (invalid both username & password)", () => {
+    cy.login("Admin", "admin1234");
+    cy.get(".oxd-alert-content-text").should(
+      "have.text",
+      "Invalid credentials",
+    );
+  });
+});
