@@ -21,7 +21,7 @@ Cypress.Commands.add("login", (username, password) => {
 });
 
 Cypress.Commands.add("admin", () => {
-  adminobj.parentModule.each(($el, index, $list) => {
+  cy.get(".oxd-main-menu-item-wrapper").each(($el, index, $list) => {
     if ($el.text() === "Admin") {
       cy.wrap($el).click();
     }
@@ -29,7 +29,7 @@ Cypress.Commands.add("admin", () => {
 });
 
 Cypress.Commands.add("user", (childmodulename) => {
-  adminobj.parentChildModule.then((resp) => {
+  cy.get(".oxd-topbar-body-nav-tab-item").then((resp) => {
     cy.wrap(resp.text());
     if (
       childmodulename === "Nationalities" ||

@@ -20,9 +20,9 @@ describe("Validating User", () => {
   it.only("Validating filter of system user", () => {
     cy.login("Admin", "admin123");
     cy.admin();
-    adminuserobj.filterTabVisible;
+    adminuserobj.filterTab.should("be.visible");
     adminuserobj.filterTabClick;
-    adminuserobj.filterTabNotVisible;
+    adminuserobj.filterTab.should("not.be.visible");
   });
   it("Validating Username block", () => {
     cy.login("Admin", "admin123");

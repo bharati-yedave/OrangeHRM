@@ -17,12 +17,12 @@ describe("Validating User", () => {
       "https://opensource-demo.orangehrmlive.com/web/index.php/admin/viewSystemUsers",
     );
   });
-  it.only("Validating filter of system user", () => {
+  it("Validating filter of system user", () => {
     cy.login("Admin", "admin123");
     cy.admin();
-    adminuserobj.filterTabVisible;
-    adminuserobj.filterTabClick;
-    adminuserobj.filterTabNotVisible;
+    cy.get(".oxd-table-filter-area").should("be.visible");
+    cy.get(".oxd-table-filter-header-options").click();
+    cy.get(".oxd-table-filter-area").should("not.be.visible");
   });
   it("Validating Username block", () => {
     cy.login("Admin", "admin123");
@@ -30,7 +30,7 @@ describe("Validating User", () => {
     cy.get(".oxd-input:nth-child(1)").type("admin");
   });
   //////////////////////////////////////////////////////////////////////////////work in progress
-  it("Validating Userrole dropdown block", () => {
+  it.only("Validating Userrole dropdown block", () => {
     cy.login("Admin", "admin123");
     cy.admin();
     cy.get(".oxd-select-wrapper").find("div").find("i").eq(0).click();

@@ -20,9 +20,9 @@ describe("Validating User", () => {
   it.only("Validating filter of system user", () => {
     cy.login("Admin", "admin123");
     cy.admin();
-    adminuserobj.filterTabVisible;
-    adminuserobj.filterTabClick;
-    adminuserobj.filterTabNotVisible;
+    cy.get(".oxd-table-filter-area").should("be.visible");
+    cy.get(".oxd-table-filter-header-options").click();
+    cy.get(".oxd-table-filter-area").should("not.be.visible");
   });
   it("Validating Username block", () => {
     cy.login("Admin", "admin123");
