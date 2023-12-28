@@ -4,7 +4,7 @@ const loginObj = new LoginPage();
 describe("Validating Login Credentials", () => {
   /////////////////////////////////
   context("With Valid Credential", () => {
-    it.only("Testing Login Valid credentials", () => {
+    it("Testing Login Valid credentials", () => {
       cy.login("Admin", "admin123");
       loginObj.successFullLogin;
     });
@@ -25,11 +25,11 @@ describe("Validating Login Credentials", () => {
         cy.login("Admin1", "admin123");
         loginObj.errorText2;
       });
-      it.only("Validating with wrong password", () => {
+      it("Validating with wrong password", () => {
         cy.login("Admin", "admin1234");
         loginObj.errorText2;
       });
-      it.only("Validating with wrong username & password", () => {
+      it("Validating with wrong username & password", () => {
         cy.login("Admin", "admin1234");
         loginObj.errorText2;
       });

@@ -4,12 +4,12 @@ const loginObj = new LoginPage();
 describe("Validating Login Credentials", () => {
   /////////////////////////////////
   context("With Valid Credential", () => {
-    it.only("Testing Login Valid credentials", () => {
+    it("Testing Login Valid credentials", () => {
       cy.login("Admin", "admin123");
       loginObj.successFullLogin;
     });
   });
-  context("With Invalid Credential", () => {
+  describe("With Invalid Credential", () => {
     context("Validation with empty Username and Password", () => {
       it.only("Validating with empty username", () => {
         cy.login(" ", "admin123");

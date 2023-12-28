@@ -10,21 +10,24 @@ describe("Validating Login Page", () => {
   });
   context("Validating Forgotten Your Password Page", () => {
     it("Validating Forgotten Your Password text", () => {
-      loginObj.forgotPassword;
+      loginObj.forgotpassword;
       cy.get(".orangehrm-forgot-password-title").should(
         "have.text",
         "Reset Password",
       );
     });
     it("Validating cancel Button", () => {
-      loginObj.forgotPassword;
-      loginObj.typeAdmiName;
+      loginObj.forgotpassword;
+      loginObj.typeadminame;
       loginObj.cancelButton;
-      loginObj.successFullCancelReset;
+      cy.url().should(
+        "eq",
+        "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login",
+      );
     });
     it("Validating reset password button", () => {
-      loginObj.forgotPassword;
-      loginObj.typeAdmiName;
+      loginObj.forgotpassword;
+      loginObj.typeadminame;
       loginObj.resetButton;
       loginObj.successFullReset;
     });

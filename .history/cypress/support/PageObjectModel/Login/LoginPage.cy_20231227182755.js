@@ -1,9 +1,9 @@
 class LoginPage {
-  get userName() {
+  get username() {
     return cy.get('[name = "username"]');
   }
 
-  get passWord() {
+  get password() {
     return cy.get('[name="password"]');
   }
 
@@ -14,11 +14,11 @@ class LoginPage {
   get successFullLogin() {
     return cy.get('[alt="client brand banner"]').should("be.visible");
   }
-  get forgotPassword() {
+  get forgotpassword() {
     return cy.get(".orangehrm-login-forgot-header").click();
   }
 
-  get typeAdmiName() {
+  get typeadminame() {
     return cy.get(".oxd-input--active").type("admin");
   }
 

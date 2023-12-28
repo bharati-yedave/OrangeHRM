@@ -1,13 +1,4 @@
 class AdminUserManagement {
-  get userURL() {
-    return cy
-      .url()
-      .should(
-        "eq",
-        "https://opensource-demo.orangehrmlive.com/web/index.php/admin/viewSystemUsers",
-      );
-  }
-
   get filterTabVisible() {
     return cy.get(".oxd-table-filter-area").should("be.visible");
   }
@@ -16,9 +7,6 @@ class AdminUserManagement {
   }
   get filterTabClick() {
     return cy.get(".oxd-table-filter-header-options").click();
-  }
-  get userName() {
-    return cy.get(".oxd-input:nth-child(1)");
   }
   get userRole() {
     return cy.get(".oxd-select-wrapper").find("div").find("i").eq(0).click();
@@ -30,16 +18,7 @@ class AdminUserManagement {
       .contains("Admin")
       .click();
   }
-  get status() {
-    return cy.get(".oxd-select-wrapper").find("div").find("i").eq(1).click();
-  }
-  get statusDropdown() {
-    return cy
-      .get(".oxd-select-dropdown")
-      .find(".oxd-select-option")
-      .contains("Enabled")
-      .click();
-  }
+  get statusDropdown() {}
 }
 
 export default AdminUserManagement;

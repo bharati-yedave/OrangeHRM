@@ -1,5 +1,5 @@
 /// <reference types="cypress" />
-const childList = {
+const childlist = {
   UN: "User Management ",
   jb: "Job",
   org: "Organization",
@@ -20,8 +20,8 @@ describe("Validating Admin Parent Module", () => {
   it("Validating Admin child module List", () => {
     cy.login("Admin", "admin123");
     cy.admin();
-    for (const key in childList) {
-      cy.user(childList[key]);
+    for (const key in childlist) {
+      cy.user(childlist[key]);
     }
   });
 });
