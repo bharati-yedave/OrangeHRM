@@ -15,8 +15,8 @@ import AdminPageNavigate from "./PageObjectModel/Admin/AdminPageNavigate.cy";
 const loginObj = new LoginPage();
 const adminobj = new AdminPageNavigate();
 Cypress.Commands.add("login", (username, password) => {
-  loginObj.username.type(username);
-  loginObj.password.type(password);
+  loginObj.userName.type(username);
+  loginObj.passWord.type(password);
   loginObj.submit.click();
 });
 

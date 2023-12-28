@@ -1,16 +1,8 @@
 /// <reference types="cypress" />
 import LoginPage from "../../../support/PageObjectModel/Login/LoginPage.cy";
+const loginObj = new LoginPage();
 describe("Validating Login Page", () => {
-  beforeEach(() => {
-    cy.visit(
-      "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login",
-    );
-  });
-  afterEach(() => {
-    cy.wait(2000);
-  });
   context("Validating Login Button", () => {
-    const loginObj = new LoginPage();
     it("Validating Login Button", () => {
       loginObj.submit.click();
       loginObj.errorText3;
@@ -18,32 +10,23 @@ describe("Validating Login Page", () => {
   });
   context("Validating Forgotten Your Password Page", () => {
     it("Validating Forgotten Your Password text", () => {
-      const loginObj = new LoginPage();
-      loginObj.forgotpassword;
+      loginObj.forgotPassword;
       cy.get(".orangehrm-forgot-password-title").should(
         "have.text",
         "Reset Password",
       );
     });
     it("Validating cancel Button", () => {
-      const loginObj = new LoginPage();
-      loginObj.forgotpassword;
-      loginObj.typeadminame;
-      cy.get(".oxd-button--ghost").click();
-      cy.url().should(
-        "eq",
-        "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login",
-      );
+      loginObj.forgotPassword;
+      loginObj.typeAdmiName;
+      loginObj.cancelButton;
+      loginObj.successFullCancelReset;
     });
     it("Validating reset password button", () => {
-      const loginObj = new LoginPage();
-      loginObj.forgotpassword;
-      loginObj.typeadminame;
-      cy.get(".oxd-button--secondary").click();
-      cy.get(".oxd-text--h6").should(
-        "have.text",
-        "Reset Password link sent successfully",
-      );
+      loginObj.forgotPassword;
+      loginObj.typeAdmiName;
+      loginObj.resetButton;
+      loginObj.successFullReset;
     });
   });
 });
