@@ -1,9 +1,9 @@
 class LoginPage {
-  get userName() {
+  get username() {
     return cy.get('[name = "username"]');
   }
 
-  get passWord() {
+  get password() {
     return cy.get('[name="password"]');
   }
 
@@ -14,11 +14,11 @@ class LoginPage {
   get successFullLogin() {
     return cy.get('[alt="client brand banner"]').should("be.visible");
   }
-  get forgotPassword() {
+  get forgotpassword() {
     return cy.get(".orangehrm-login-forgot-header").click();
   }
 
-  get typeAdmiName() {
+  get typeadminame() {
     return cy.get(".oxd-input--active").type("admin");
   }
 
@@ -34,26 +34,6 @@ class LoginPage {
 
   get errorText3() {
     return cy.get(".oxd-text--span").should("have.text", "RequiredRequired");
-  }
-
-  get cancelButton() {
-    return cy.get(".oxd-button--ghost").click();
-  }
-  get resetButton() {
-    return cy.get(".oxd-button--secondary").click();
-  }
-  get successFullReset() {
-    return cy
-      .get(".oxd-text--h6")
-      .should("have.text", "Reset Password link sent successfully");
-  }
-  get successFullCancelReset() {
-    return cy
-      .url()
-      .should(
-        "eq",
-        "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login",
-      );
   }
 }
 

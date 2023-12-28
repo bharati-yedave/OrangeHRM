@@ -9,7 +9,7 @@ describe("Validating Login Credentials", () => {
       loginObj.successFullLogin;
     });
   });
-  context("With Invalid Credential", () => {
+  describe("With Invalid Credential", () => {
     context("Validation with empty Username and Password", () => {
       it.only("Validating with empty username", () => {
         cy.login(" ", "admin123");

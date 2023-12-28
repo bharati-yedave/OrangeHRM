@@ -22,9 +22,6 @@ beforeEach("", () => {
     "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login",
   );
 });
-afterEach(() => {
-  cy.wait(4000);
-});
 
 // Alternatively you can use CommonJS syntax:
 // require("./commands");

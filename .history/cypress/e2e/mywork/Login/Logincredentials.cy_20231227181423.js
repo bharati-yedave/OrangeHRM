@@ -4,7 +4,7 @@ const loginObj = new LoginPage();
 describe("Validating Login Credentials", () => {
   /////////////////////////////////
   context("With Valid Credential", () => {
-    it.only("Testing Login Valid credentials", () => {
+    it("Testing Login Valid credentials", () => {
       cy.login("Admin", "admin123");
       loginObj.successFullLogin;
     });
