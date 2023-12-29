@@ -8,40 +8,33 @@ class AdminUserManagement {
       );
   }
 
-  get filterTabVisible() {
-    return cy.get(".oxd-table-filter-area").should("be.visible");
+  get filterButton() {
+    return cy.get(".oxd-table-filter-area");
   }
-  get filterTabNotVisible() {
-    return cy.get(".oxd-table-filter-area").should("not.be.visible");
-  }
+
   get filterTabClick() {
-    return cy.get(".oxd-table-filter-header-options").click();
+    return cy.get(".oxd-table-filter-header-options");
   }
   get userName() {
     return cy.get(".oxd-input:nth-child(1)");
   }
+  get userRole() {
+    return cy.get(".oxd-select-wrapper");
+  }
   get employeeName() {
     return cy.get('[placeholder="Type for hints..."]');
   }
-  get userRole() {
-    return cy.get(".oxd-select-wrapper").find("div").find("i").eq(0).click();
+  get status() {
+    return cy.get(".oxd-select-wrapper");
   }
   get userRolDropdown() {
-    return cy
-      .get(".oxd-select-dropdown")
-      .find(".oxd-select-option")
-      .contains("Admin")
-      .click();
+    return cy.get(".oxd-select-dropdown");
   }
-  get status() {
-    return cy.get(".oxd-select-wrapper").find("div").find("i").eq(1).click();
+  get employeeRoleDropdown() {
+    return cy.get(".oxd-autocomplete-dropdown");
   }
   get statusDropdown() {
-    return cy
-      .get(".oxd-select-dropdown")
-      .find(".oxd-select-option")
-      .contains("Enabled")
-      .click();
+    return cy.get(".oxd-select-dropdown");
   }
 }
 
