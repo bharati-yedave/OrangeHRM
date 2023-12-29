@@ -20,11 +20,22 @@ describe("Validating User", () => {
     cy.admin();
     adminUserObj.userName.type("admin");
   });
-  //////////////////////////////////////////////////////////////////////////////work in progress
   it("Validating Userrole dropdown block", () => {
     cy.login("Admin", "admin123");
     cy.admin();
     adminUserObj.userRole;
     adminUserObj.userRolDropdown;
+  });
+  // work here
+  it.only("Validating Employee Name block", () => {
+    cy.login("Admin", "admin123");
+    cy.admin();
+    adminUserObj.employeeName.type("p");
+    cy.get(".oxd-autocomplete-dropdown")
+      .find("div")
+      .find("span")
+      .then((resp) => {
+        cy.wrap(resp).contains("Cecil Bonaparte").click();
+      });
   });
 });
