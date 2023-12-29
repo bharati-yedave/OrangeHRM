@@ -20,6 +20,9 @@ class AdminUserManagement {
   get userName() {
     return cy.get(".oxd-input:nth-child(1)");
   }
+  get employeeName() {
+    return cy.get('[placeholder="Type for hints..."]');
+  }
   get userRole() {
     return cy.get(".oxd-select-wrapper").find("div").find("i").eq(0).click();
   }
